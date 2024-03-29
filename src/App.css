@@ -1,1 +1,48 @@
+.albums {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 5rem 1rem;
+  padding: 3rem 2rem;
+}
 
+.album {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: white;
+  box-shadow: 0px 0px 11px 2px #bebebe;
+  position: relative;
+}
+
+.album h1 {
+  text-shadow: 0px 0px 2px rgba(66, 68, 90, 1);
+  word-break: break-all;
+}
+
+.albumName {
+  padding-inline: 0.5rem 1.5rem;
+}
+
+.albumArtist {
+  position: absolute;
+  right: 0;
+  background: white;
+  text-transform: uppercase;
+  width: 1em;
+}
+
+.albumArtist h1 {
+  font-size: 20px;
+  word-break: break-all;
+  line-height: 1;
+  text-align: center;
+}
+
+.albumImage {
+  margin-top: auto;
+}
+
+.albumImage img {
+  width: 100%;
+  object-fit: cover;
+}
