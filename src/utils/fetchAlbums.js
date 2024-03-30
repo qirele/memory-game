@@ -20,6 +20,7 @@ export default function fetchAlbums(setData) {
   Promise.all(URLS.map((u) => fetch(u)))
     .then((responses) => Promise.all(responses.map((res) => res.json())))
     .then((jsons) => {
+      console.log(jsons);
       let albumsArr = [];
       jsons.forEach((json) => {
         const artistName = json.topalbums["@attr"].artist;

@@ -10,17 +10,15 @@ export default function App() {
     return initialValue || "";
   });
 
-
   const isDataFetched = typeof data === "object";
 
   useEffect(() => {
-    if (isDataFetched) {
-      console.log("Already fetched all albums");
-      return;
+    if (!isDataFetched) {
+      fetchAlbums(setData);
+      console.log("Fetching items");
+    } else {
+      console.log("Already fetched");
     }
-
-    fetchAlbums(setData);
-
   }, [isDataFetched]);
 
   return (
