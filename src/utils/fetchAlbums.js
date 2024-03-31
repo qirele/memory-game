@@ -6,7 +6,7 @@ const artists = [
 ];
 
 export default function fetchAlbums(setData) {
-  const baseURL = `http://ws.audioscrobbler.com/2.0/`;
+  const baseURL = `https://ws.audioscrobbler.com/2.0/`;
   const apiKey = `ce5e7f34b1972343c0feaf5829cbe842`;
 
   let URLS = [];
