@@ -2,10 +2,11 @@ import { useState } from 'react';
 import Album from './Album.jsx';
 
 export default function Albums({ albums }) {
-  const [score, setScore] = useState(0);
   const [highestScore, setHighestScore] = useState(0);
   const [previousAlbums, setPreviousAlbums] = useState([]);
   const [reorderedAlbums, setReorderedAlbums] = useState(albums);
+
+  const currentScore = previousAlbums.length;
 
   const handleClick = (e) => {
     const currentId = e.currentTarget.id
@@ -20,15 +21,13 @@ export default function Albums({ albums }) {
     });
 
     if (albumAlreadyClicked) {
-      setScore(0);
-      if (score > highestScore) {
-        setHighestScore(score);
+      if (currentScore > highestScore) {
+        setHighestScore(currentScore);
       }
       setPreviousAlbums([]);
     } else {
-      setScore(score + 1);
-      if ((score + 1) >= highestScore) {
-        setHighestScore(score + 1);
+      if ((currentScore + 1) >= highestScore) {
+        setHighestScore(currentScore + 1);
       }
       setPreviousAlbums([...previousAlbums, currentId])
     }
@@ -37,11 +36,18 @@ export default function Albums({ albums }) {
   return (
     <>
       <div className="score">
-        <p>Score: {score}</p>
+        <p>Score: {currentScore}</p>
         <p>Highest score: {highestScore}</p>
+
+        {currentScore === 12 &&
+          <p className="congrats">
+            Congratulations, you won the memory game
+          </p>
+        }
       </div>
 
       <div className="albums">
+
         {
           reorderedAlbums.map(album =>
             <Album
