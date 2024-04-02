@@ -23,10 +23,6 @@ export default function App() {
 
   return (
     <>
-      <div className="welcome">
-        <h1>Memory game</h1>
-        <p>Score points by remembering which albums you&apos;ve already clicked</p>
-      </div>
       {
         isDataFetched && (
           <Albums albums={data} />

@@ -35,19 +35,23 @@ export default function Albums({ albums }) {
 
   return (
     <>
-      <div className="score">
-        <p>Score: {currentScore}</p>
-        <p>Highest score: {highestScore}</p>
+      <div className="container info">
+        <div className="welcome">
+          <h1>Memory game</h1>
+          <p>Score points by remembering which albums you&apos;ve already clicked</p>
+        </div>
+        <div className="score">
+          <p>Score: {currentScore}</p>
+          <p>Highest score: {highestScore}</p>
 
-        {currentScore === 12 &&
-          <p className="congrats">
-            Congratulations, you won the memory game
-          </p>
-        }
+          {currentScore === 12 &&
+            <p className="congrats">
+              Congratulations, you won the memory game
+            </p>
+          }
+        </div>
       </div>
-
-      <div className="albums">
-
+      <div className="albums container">
         {
           reorderedAlbums.map(album =>
             <Album
